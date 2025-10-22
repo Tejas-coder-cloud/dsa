@@ -16,10 +16,12 @@ int main()
     // your code goes here
     int t;
     cin >> t;
+    cout<<endl;
     while (t--)
     {
         ll n, h;
         cin >> n >> h;
+        cout<<endl;
         vector<int> v(n);
         for (int i = 0; i < n; i++)
             cin >> v[i];
