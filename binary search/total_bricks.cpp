@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long int;
-int max_complete_layers(int n)
+ll max_complete_layers(int n)
 {
     ll start=0,end=n,result=0;
     while (start<=end)
