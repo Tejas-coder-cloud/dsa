@@ -18,4 +18,6 @@ int main()
     int ans=maxprofit(a);
     cout<<"Maximum profit earned is: "<<ans;
     return 0;
-}
+}/* Time complexity: O(n)
+Space complexity: O(1)
+*/

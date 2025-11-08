@@ -1,8 +1,5 @@
-// #include <iostream>
-// #include <vector>
 #include<bits/stdc++.h>
 using namespace std;
-
 void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     int p1 = m - 1;           // pointer for nums1
     int p2 = n - 1;           // pointer for nums2
