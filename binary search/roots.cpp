@@ -18,7 +18,6 @@ int main()
         long long x;
         cin>>x;
         long long start=0,end=n-1;
-       
         while(start<=end)
         {
              long long mid=(start+end)/2;
