@@ -1,29 +1,29 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int partition(int arr[],int s,int e)
 {
     int pivot=arr[s],cnt=0;
-    for (int i = s+1; i < e; i++)
+    for (int  i=s+1;i<=e;i++)
     {
-        if (arr[i]<=pivot)
+        if(arr[i]<pivot)
         {
             cnt++;
         }
     }
-    // place at right position
-    int pivotindex=s+cnt,i=s,j=e;
-    swap(arr[pivotindex],arr[s]); 
-    while (i<pivotindex && j>pivotindex)
+    int pivotindex=s+cnt;
+    swap(arr[pivotindex],arr[s]);
+    int i=s,j=e;
+    while(i<pivotindex && j>pivotindex)
     {
-        while (i<pivotindex)
+        while(i<pivotindex && arr[i]<pivot)
         {
-            i++;
+         i++;
         }
-        while (j>pivotindex)
+        while(j>pivotindex && arr[j]>pivot)
         {
-            j--;
+         j--;
         }
-        if (i<pivotindex && j>pivotindex)
+        if(i<pivotindex && j>pivotindex)
         {
             swap(arr[i++],arr[j--]);
         }
@@ -31,26 +31,23 @@ int partition(int arr[],int s,int e)
     return pivotindex;
 }
 void Quicksort(int arr[],int s,int e)
-{ 
-    // base case
-    if (s>=e)
+{
+    if(s>=e)
     {
         return;
     }
     int p=partition(arr,s,e);
-    // sort the first half 
     Quicksort(arr,s,p-1);
-    // sort the remaining half 
-    Quicksort(arr,p+1,e);    
+    Quicksort(arr,p+1,e);
 }
-int main() 
+int main()
 {
-    int arr[]={2,1,0,3,4,9,5},n=sizeof(arr)/sizeof(arr[0]);
-    Quicksort(arr,0,n-1);
-    cout<<"Sorted array is as follows: "<<endl;
-    for (auto i:arr)
+    int arr[]={2,1,0,9,8};
+    int size=5;
+    Quicksort(arr,0,size-1);
+    for(int i: arr)
     {
-        cout<<i<<"\t";
+        cout<<i<<" ";
     }
     return 0;
 }
