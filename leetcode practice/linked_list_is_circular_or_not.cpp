@@ -22,11 +22,11 @@ bool isCircular(Node* head)
     {
         temp=temp->next;
     }
-    if(temp==head)
+    if(temp==NULL)
     {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 int main()
 {
