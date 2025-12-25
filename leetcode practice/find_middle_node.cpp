@@ -1,17 +1,16 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-
-// Definition for singly-linked list.
-struct ListNode {
+struct ListNode 
+{
     int val;
     ListNode *next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
-
-class Solution {
-public:
+class Solution 
+{
+    public:
     // Helper function to find the total length of the list
     int getlength(ListNode* head) {
         int len1 = 0;
@@ -69,3 +68,104 @@ int main() {
 
     return 0;
 }
+/*
+// Optimized approach
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
+class Solution 
+{
+public:
+    ListNode* middlepointer(ListNode* head) 
+    {
+        if (head == NULL || head->next == NULL) 
+        {
+            return head;
+        }
+        ListNode* slow = head;
+        ListNode* fast = head->next;
+
+        while (fast != NULL) 
+        {
+            fast = fast->next;
+            if (fast != NULL) 
+            {
+                fast = fast->next;
+            }
+            slow = slow->next;
+        }
+        return slow;
+    }
+
+    ListNode* middleNode(ListNode* head) 
+    {
+        return middlepointer(head);
+    }
+};
+
+// --- Helper Functions for main() ---
+
+// Function to create a linked list from a vector
+ListNode* createList(const vector<int>& arr) {
+    if (arr.empty()) return nullptr;
+    ListNode* head = new ListNode(arr[0]);
+    ListNode* curr = head;
+    for (size_t i = 1; i < arr.size(); i++) {
+        curr->next = new ListNode(arr[i]);
+        curr = curr->next;
+    }
+    return head;
+}
+
+// Function to print the list starting from a specific node
+void printList(ListNode* head) {
+    while (head != nullptr) {
+        cout << head->val << (head->next ? " -> " : "");
+        head = head->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    Solution sol;
+
+    // Example 1: Odd number of elements [1, 2, 3, 4, 5]
+    vector<int> data1 = {1, 2, 3, 4, 5};
+    ListNode* list1 = createList(data1);
+    
+    cout << "Original List 1: ";
+    printList(list1);
+
+    ListNode* mid1 = sol.middleNode(list1);
+    cout << "Middle Node starts at: " << mid1->val << endl;
+    cout << "Full list from middle: ";
+    printList(mid1);
+
+    cout << "\n-------------------\n" << endl;
+
+    // Example 2: Even number of elements [1, 2, 3, 4, 5, 6]
+    vector<int> data2 = {1, 2, 3, 4, 5, 6};
+    ListNode* list2 = createList(data2);
+
+    cout << "Original List 2: ";
+    printList(list2);
+
+    ListNode* mid2 = sol.middleNode(list2);
+    cout << "Middle Node starts at: " << mid2->val << endl;
+    cout << "Full list from middle: ";
+    printList(mid2);
+
+    return 0;
+}
+*/
