@@ -61,6 +61,7 @@ class CircularQueue
         {
             front++;
         }
+        return ans;
     }
 };
 int main()
