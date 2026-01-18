@@ -1,4 +1,5 @@
 Data Structures & Algorithms (DSA) Workspace
+
 This repository is a collection of my C++ implementations for various data structures and algorithmic paradigms. Each folder represents a core concept I have mastered or am currently exploring.
 📂 Repository Structure
 🔍 Binary SearchFocuses on $O(\log N)$ search algorithms, including searching in rotated sorted arrays and finding square roots using search space reduction.
