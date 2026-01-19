@@ -1,39 +1,51 @@
-# 💻 Data Structures & Algorithms (DSA) Workspace
 
-This repository is a collection of my C++ implementations for various data structures and algorithmic paradigms. Each folder represents a core concept I have mastered or am currently exploring.
+# 💻 Data Structures & Algorithms (DSA) Portfolio
+
+This repository is a collection of my journey through Data Structures and Algorithms. It contains well-commented implementations, optimized solutions, and notes on various computer science concepts.
 
 ---
 
-## 📂 Repository Structure
+## 🗺️ Roadmap & Progress
 
-### 🔍 Binary Search
-Focuses on $O(\log N)$ search algorithms.
-* Searching in rotated sorted arrays.
-* Finding square roots using search space reduction.
+| Category | Status | Key Topics Covered |
+| :--- | :--- | :--- |
+| **[Linked List](./linked-list)** | 🟢 Completed | Reversal, Cycle Detection, Slow & Fast Pointers |
+| **[Binary Search](./binary-search)** | 🟡 In Progress | Search in Rotated Array, Lower/Upper Bounds |
+| **[Stacks & Queues](./stacks-queues)** | 🟢 Completed | Infix/Postfix, Monotonic Stack, Circular Queues |
+| **[Sorting](./sorting)** | 🟢 Completed | Merge Sort, Quick Sort, Selection, Insertion |
+| **[Recursion](./recursion)** | 🟡 In Progress | Backtracking, Subsets, Tower of Hanoi |
+| **[LeetCode Practice](./leetcode)** | 🚀 Ongoing | Solutions to Easy, Medium, and Hard problems |
 
-### 🔄 Recursion
-Understanding the Call Stack and breaking complex problems into smaller sub-problems.
-* **Linear & Binary Search:** Recursive implementations.
-* **Math Operations:** Calculating exponents ($a^b$) efficiently.
-* **Concepts:** Mastered the difference between Tail and Head recursion.
+---
 
-### 🔗 Linked List
-Pointer-based data structures and memory management.
-* Singly and Doubly Linked Lists.
-* Cycle detection (Floyd’s Cycle-Finding Algorithm).
-* Reversing lists (Iterative and Recursive).
+## 🚀 Featured Implementations
 
-### 📥 Stacks
-Last-In-First-Out (LIFO) implementations.
-* Includes problems like Parenthesis matching and Next Greater Element.
+### 1. Linked List Reversal (Iterative)
+One of the core patterns mastered is the **Three-Pointer Technique** ($prev$, $curr$, $forward$) to reverse a list in $O(n)$ time and $O(1)$ space.
 
-### 📤 Queue
-First-In-First-Out (FIFO) implementations.
-* **Featured:** Sum of Max and Min in a sliding window using `std::deque` ($O(N)$ logic).
 
-### 📊 Sorting Algo
-Implementations of various sorting techniques to understand time and space complexity.
-* Merge Sort, Quick Sort, and Bubble Sort.
 
-### 💡 LeetCode Practice
-Daily problem-solving scripts focused on competitive programming and interview preparation.
+### 2. Sorting Algorithms
+Comparing different time complexities:
+* **Merge Sort:** O(nlog n) - Stable, uses extra space.
+* **Quick Sort:** O(nlog n) average - In-place, unstable.
+* **Selection Sort:** O(n^2) - Simple but inefficient for large data.
+
+
+
+---
+
+## 🛠️ Tech Stack & Tools
+* **Language:** C++17 (Standard Library: `<bits/stdc++.h>`)
+* **Environment:** VS Code / Terminal
+* **Compiler:** `g++` (GCC)
+
+---
+
+## 🧠 Learning Log & Notes
+
+### Useful Snippets
+**Fast I/O in C++:**
+```cpp
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
