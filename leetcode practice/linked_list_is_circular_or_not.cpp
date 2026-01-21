@@ -59,7 +59,7 @@ class Node
   Node(int data)
   {
     this->data=data;
-    this->next=next;
+    this->next=NULL;
    }
 
 };
@@ -71,7 +71,7 @@ bool isCircular(Node* & head)
    }
     Node* slow=head;
     Node * fast=head->next;
-    while(fast && fast>next)
+    while(fast && fast->next)
     {
      if(slow==fast)
      {
