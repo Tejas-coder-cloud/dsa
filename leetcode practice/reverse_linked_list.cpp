@@ -10,7 +10,7 @@ struct ListNode
 };
 class Solution 
 {
-public:
+    public:
     void reverse(ListNode* &head, ListNode* curr, ListNode* prev) 
     {
         if (curr == NULL) 
@@ -18,12 +18,10 @@ public:
             head = prev; 
             return;
         }
-
         ListNode* forward = curr->next;
         reverse(head, forward, curr);
         curr->next = prev;
     }
-
     ListNode* reverseList(ListNode* head) 
     {
         ListNode* prev = NULL;

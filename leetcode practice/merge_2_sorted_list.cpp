@@ -11,14 +11,13 @@ class Node
 };
 Node* merge2list(Node* list1,Node*list2)
 {
-    
         if(list1==NULL && list2==NULL)
         {
             return NULL;
         }
         Node * dummy=new Node(0);
         Node* head=dummy;
-        while(list1 && list2 )
+        while(list1 && list2)
         {
             if(list1->data<=list2->data)
             {

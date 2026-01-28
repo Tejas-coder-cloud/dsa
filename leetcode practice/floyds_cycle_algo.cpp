@@ -18,13 +18,9 @@ Node *floydcycle(Node * &head)
     }
     Node*slow=head;
     Node*fast=head;
-    while(slow!=NULL && fast!=NULL)
+    while(fast && fast->next)
     {
-        fast=fast->next;
-        if(fast!=NULL)
-        {
-            fast=fast->next;
-        }
+        fast=fast->next->next;
         slow=slow->next;
         if(slow==fast)
         {
