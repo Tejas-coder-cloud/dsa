@@ -64,9 +64,12 @@ void deletenode(Node * &tail, int position)
         Node*temp=tail->next;
         if(temp==tail)
         {
-            tail==NULL;
+            tail=NULL;
         }
-        tail->next=temp->next;
+        else
+        {
+            tail->next=temp->next;
+        }
         temp->next=NULL;
         delete temp;
         return;
@@ -91,7 +94,7 @@ void deletenode(Node * &tail, int position)
         return;
     }
     prev->next=curr->next;
-    if(curr=tail)
+    if(curr==tail)
     {
         tail=prev;
     }
