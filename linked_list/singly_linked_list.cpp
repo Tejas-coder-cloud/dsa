@@ -19,9 +19,8 @@ class Node
             this->next=NULL;
         }
     }
-    
 };
-void insertathead(Node* &head, int data)
+    void insertathead(Node* &head, int data)
     {
         Node*temp=new Node(data);
         temp->next=head;
@@ -42,10 +41,15 @@ void insertathead(Node* &head, int data)
         }
         Node* temp=head;
         int cnt=1;
-        while(cnt<position-1)
+        while(cnt<position-1 && temp!=NULL)
         {
             temp=temp->next;
             cnt++;
+        }
+        if(temp==NULL)
+        {
+            cout<<"Invalid position";
+            return;
         }
         if(temp->next==NULL)
         {
@@ -58,6 +62,11 @@ void insertathead(Node* &head, int data)
     }
     void deletenode(int position, Node * &head)
     {
+        if(head==NULL)
+        {
+          cout<<"Linked list is empty!!";
+          return;
+        }
         if(position==1)
         {
             Node* temp=head;
@@ -83,6 +92,11 @@ void insertathead(Node* &head, int data)
     }
     void display(Node* &head)
     {
+        if(head==NULL)
+        {
+          cout<<"Linked list is empty!!";
+          return;
+        }
         Node*temp=head;
         while(temp!=NULL)
         {
