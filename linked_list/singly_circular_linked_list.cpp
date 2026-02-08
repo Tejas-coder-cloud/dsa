@@ -85,7 +85,6 @@ void deletenode(Node * &tail, int position)
             cout<<"Index out of bounds"<<" ";
             return;
         }
-
     }
     Node*curr=prev->next;
     if(position>1 && prev==tail)
@@ -109,6 +108,7 @@ void display(Node* & tail)
      return;
    } 
    Node *temp=tail->next;
+   cout<<"Circular singly linked list is as follows:";
    do
    {
     cout<<temp->data<<" ";
@@ -119,6 +119,8 @@ void display(Node* & tail)
 }
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     Node* tail=NULL;
     insertatposition(tail,10,1);
     insertatposition(tail,20,2);
