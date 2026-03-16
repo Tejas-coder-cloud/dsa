@@ -1,8 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
-class Solution {
+class Solution 
+{
 public:
-    string multiply(string num1, string num2) {
+    string multiply(string num1, string num2) 
+    {
         reverse(num1.begin(),num1.end());
         reverse(num2.begin(),num2.end());
         int n=num1.length(),m=num2.length();
@@ -24,8 +26,6 @@ public:
         while(first<=n+m && v[first]==0)
         {
             first++;
-          
-            
         }
           if(first==n+m+1)
             {
@@ -42,6 +42,10 @@ public:
 int main()
 {
     Solution sol;
-    cout<<sol.multiply("231","341");
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    string s1="99",s2="99";
+    string ans =sol.multiply(s1,s2);
+    cout<<"The multiplication of  "<<s1<<"  with  "<<s2<<" is "<<ans<<endl;
     return 0;
 }
