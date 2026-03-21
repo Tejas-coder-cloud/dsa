@@ -1,14 +1,23 @@
  /* Minimum window substring 
 Time complexity:O(N)
 Space complexity: O(K)
+Here order doesn't matter 
+means if we have t="abc",s="aaabbbccbca"
+then "bca"=="abc" 
 */
 #include <bits/stdc++.h>
 using namespace std;
 string minWindow(string s, string t) 
 {
-    if (s.empty() || t.empty()) return "";
+    if (s.empty() || t.empty()) 
+    {
+        return "";
+    }
     unordered_map<char, int> targetCount;
-    for (char c : t) targetCount[c]++;
+    for (char c : t)
+    { 
+        targetCount[c]++;
+    }
     unordered_map<char, int> windowCount;
     int left = 0, right = 0, formed = 0;
     int required = targetCount.size();
@@ -17,12 +26,10 @@ string minWindow(string s, string t)
     {
         char c = s[right];
         windowCount[c]++;
-        // If the frequency of the current char matches the target frequency
         if (targetCount.count(c) && windowCount[c] == targetCount[c]) 
         {
             formed++;
         }
-        // Try to shrink the window from the left
         while (left <= right && formed == required) 
         {
             if (right - left + 1 < minLen) 
