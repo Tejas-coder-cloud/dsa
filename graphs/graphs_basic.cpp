@@ -1,7 +1,10 @@
+/*
+Time complexity: O(n)
+Space complexity: O(1)
+*/
 #include <iostream>
 #include<vector>
 using namespace std;
-
 int main() {
     int n,edges;
     cout<<"Enter the number of nodes: ";
