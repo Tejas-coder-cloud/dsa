@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int searchelement(const vector<int> &arr,int k)
+int insertelement(const vector<int> &arr,int k)
 {
     int n=arr.size()-1;
     int start=0;
@@ -28,7 +28,7 @@ int main()
 {
     vector<int> arr={1,2,3,4,5,6};
     int k=7;
-    int ans=searchelement(arr,k);
+    int ans=insertelement(arr,k);
     cout<<ans;
     return 0;
 }

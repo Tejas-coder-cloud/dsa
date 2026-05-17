@@ -1,42 +1,32 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-typedef long long int ll;
-ll t, n, q, a[100009], x, ans[100009];
-vector < pair < ll, ll >> qr;
-
-int main() {
-    cin >> t;
-    while (t--) {
-        qr.clear();
-        cin >> n >> q;
-        for (int i = 1; i < n + 1; i++)
-            cin >> a[i];
-        for (int i = 0; i < q; i++) {
-            cin >> x;
-            qr.push_back(make_pair(x, i));
+int eating_snakes(const vector<int> & arr,int k)
+{
+    int n=arr.size();
+    int pos=lower_bound(arr.begin(),arr.end(),k)-arr.begin();
+    int ans=n-pos;
+    int left=0,right=pos-1;
+    while(left<=right)
+    {
+        int needed=k-arr[right];
+        if((right-left)>=needed)
+        {
+            ans++;
+            left+=needed;
+            right--;
         }
-        sort(a + 1, a + n + 1);
-        sort(qr.begin(), qr.end());
-        ll cur = 0;
-        ll prev = 0, presum = 0;
-        for (int i = 1;; i++) {
-            ll fir = qr[cur].first;
-            while (a[i] < fir && i < n + 1) {
-                presum += (fir - a[i]);
-                i++;
-            }
-            i--;
-            while (presum > prev) {
-                prev++;
-                presum -= (fir - a[prev]);
-            }
-            ans[qr[cur].second] = n - prev;
-            if (cur == q - 1)
-                break;
-            presum = presum + (i - prev) * (qr[cur + 1].first - fir);
-            cur++;
+        else
+        {
+            break;
         }
-        for (int i = 0; i < q; i++)
-            cout << ans[i] << "\n";
     }
+    return ans;
+}
+int main() 
+{
+    vector<int> arr={1,2,3,4,5};
+    int k=3;
+    int ans=eating_snakes( arr,k);
+    cout<<"The answer is: "<<ans<<endl;
+    return 0;
 }
