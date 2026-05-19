@@ -45,8 +45,6 @@ int main()
     cin>>n;
     ll tempsol=squareroot(n);
     cout<<"Square root of "<<n<<" is "<<moreprecision(n,3,tempsol);
-
-
     return 0;
 }
 // square root of a number using binary search
