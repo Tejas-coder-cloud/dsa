@@ -22,10 +22,13 @@ vector<int> two_sum(vector<int> &v,int target)
 }
 int main() 
 {
-    int target=5;
+    int target=9;
     vector<int> v={1,2,3,7};
     vector<int> ans=two_sum(v,target);
     int index1=ans[0],index2=ans[1];
+    if(index1 && index2 !=-1)
     cout<<"The target element is equal to the sum of elements present at index: {"<<index1<<","<<index2<<"}"<<endl;
+    else
+    cout<<"The target element is not present"<<endl;
     return 0;
 }
