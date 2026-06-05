@@ -1,51 +1,116 @@
+# 🚀 Data Structures & Algorithms (DSA) in C++
 
-# 💻 Data Structures & Algorithms (DSA) Portfolio
+This repository contains my solutions and implementations of various **Data Structures and Algorithms** concepts in **C++**. It serves as a personal learning archive and coding practice repository for interview preparation, competitive programming, and strengthening problem-solving skills.
 
-This repository is a collection of my journey through Data Structures and Algorithms. It contains well-commented implementations, optimized solutions, and notes on various computer science concepts.
+## 📂 Repository Structure
 
----
-
-## 🗺️ Roadmap & Progress
-
-| Category | Status | Key Topics Covered |
-| :--- | :--- | :--- |
-| **[Linked List](./linked-list)** | 🟢 Completed | Reversal, Cycle Detection, Slow & Fast Pointers |
-| **[Binary Search](./binary-search)** | 🟡 In Progress | Search in Rotated Array, Lower/Upper Bounds |
-| **[Stacks & Queues](./stacks-queues)** | 🟢 Completed | Infix/Postfix, Monotonic Stack, Circular Queues |
-| **[Sorting](./sorting)** | 🟢 Completed | Merge Sort, Quick Sort, Selection, Insertion |
-| **[Recursion](./recursion)** | 🟡 In Progress | Backtracking, Subsets, Tower of Hanoi |
-| **[LeetCode Practice](./leetcode)** | 🚀 Ongoing | Solutions to Easy, Medium, and Hard problems |
-
----
-
-## 🚀 Featured Implementations
-
-### 1. Linked List Reversal (Iterative)
-One of the core patterns mastered is the **Three-Pointer Technique** ($prev$, $curr$, $forward$) to reverse a list in $O(n)$ time and $O(1)$ space.
-
-
-
-### 2. Sorting Algorithms
-Comparing different time complexities:
-* **Merge Sort:** O(nlog n) - Stable, uses extra space.
-* **Quick Sort:** O(nlog n) average - In-place, unstable.
-* **Selection Sort:** O(n^2) - Simple but inefficient for large data.
-
-
+```text
+DSA/
+│
+├── arrays/           # Array-based problems and techniques
+├── binary search/    # Binary Search and its applications
+├── graphs/           # Graph algorithms (BFS, DFS, etc.)
+├── linked_list/      # Singly, Doubly, and Circular Linked Lists
+├── Queue/            # Queue implementations and problems
+├── recursion/        # Recursive solutions and backtracking
+├── sorting/          # Sorting algorithms and related problems
+├── stacks/           # Stack implementations and applications
+├── strings/          # String manipulation and pattern problems
+│
+└── README.md
+```
 
 ---
 
-## 🛠️ Tech Stack & Tools
-* **Language:** C++17 (Standard Library: `<bits/stdc++.h>`)
-* **Environment:** VS Code / Terminal
-* **Compiler:** `g++` (GCC)
+## 📚 Topics Covered
+
+### 🔹 Arrays
+- Traversal
+- Searching
+- Rotation
+- Prefix Sum
+- Sliding Window
+- Two Pointer Techniques
+
+### 🔹 Binary Search
+- Classic Binary Search
+- Search Space Reduction
+- Binary Search on Answers
+- Matrix Search Problems
+
+### 🔹 Linked Lists
+- Insertion & Deletion
+- Reversal
+- Cycle Detection
+- Doubly Linked Lists
+- Circular Linked Lists
+
+### 🔹 Stacks
+- Stack Implementation
+- Monotonic Stack
+- Next Greater Element
+- Expression Evaluation
+
+### 🔹 Queues
+- Queue Implementation
+- Circular Queue
+- Deque
+- Queue-Based Problems
+
+### 🔹 Recursion
+- Basic Recursion
+- Backtracking
+- Recursion Trees
+- Divide and Conquer
+
+### 🔹 Sorting
+- Bubble Sort
+- Selection Sort
+- Insertion Sort
+- Merge Sort
+- Quick Sort
+
+### 🔹 Strings
+- String Manipulation
+- Pattern Matching
+- Palindrome Problems
+- Character Frequency Problems
+
+### 🔹 Graphs
+- Breadth First Search (BFS)
+- Depth First Search (DFS)
+- Graph Traversal
+- Connected Components
 
 ---
 
-## 🧠 Learning Log & Notes
+## 🛠️ Language Used
 
-### Useful Snippets
-**Fast I/O in C++:**
-```cpp
-ios_base::sync_with_stdio(false);
-cin.tie(NULL);
+- **C++**
+- Standard Template Library (STL)
+
+---
+
+## 🎯 Purpose of this Repository
+
+- Practice Data Structures and Algorithms
+- Strengthen problem-solving skills
+- Prepare for coding interviews
+- Build a structured DSA reference repository
+- Track learning progress
+
+---
+
+## 📈 Learning Journey
+
+This repository is continuously updated as I learn new algorithms, optimize existing solutions, and explore advanced DSA concepts.
+
+---
+
+## 🤝 Contributions
+
+This repository is primarily maintained for personal learning. Suggestions and improvements are always welcome.
+
+---
+
+## ⭐ If you find this repository useful, consider giving it a star!
