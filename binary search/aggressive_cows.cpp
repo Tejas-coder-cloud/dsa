@@ -1,52 +1,60 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-bool isPossible(vector<int> & stalls, int k,int mid)
+bool isPossible(vector<int> &v, int m, int mid)
 {
-    int cowCount=1,lastPos=stalls[0];
-    for(int i=0;i<stalls.size();i++)
+    int Studentcount=1, pageSum=0;
+    int n=v.size();
+    for(int j=0;j<n;j++)
     {
-        if(stalls[i]-lastPos>=mid)
+        if(v[j]>mid)
         {
-            cowCount++;
-            if(cowCount==k)
-            {
-                return true;
-            }
-            lastPos=stalls[i];
+            return false;
         }
-    }
-    return false;
-}
-int aggressive_cows(vector<int> & stalls, int k)
-{
-    sort(stalls.begin(),stalls.end());
-    int start=0,ans=-1,maxi=0;
-    for(int i=0;i<stalls.size();i++)
-    {
-        maxi=max(maxi,stalls[i]);
-    }
-    int end=maxi;
-    while(start<=end)
-    {
-        int mid=start+(end-start)/2;
-        if(isPossible(stalls,k,mid))
+        if(pageSum+v[j]<=mid)
         {
-            ans=mid;
-            start=mid+1;
+            pageSum+=v[j];
         }
         else
         {
+            Studentcount++;
+            if(Studentcount>m)
+            {
+                return false;
+            }
+            pageSum=v[j];
+        }
+    }
+    return true;
+}
+int aggressive(vector<int> &v, int m)
+{
+    int start=*max_element(v.begin(), v.end()),ans=0;
+    int n=v.size(),sum=0;
+    for(int j=0;j<n;j++)
+    {
+        sum+=v[j];
+    }
+    int end=sum;
+    while(start<end)
+    {
+        int mid=start+(end-start)/2;
+        if(isPossible(v,m, mid))
+        {
+            ans=mid;
             end=mid-1;
+        }
+        else
+        {
+            start=mid+1;
         }
     }
     return ans;
 }
-
 int main() 
 {
-    vector<int> arr={4,1,3,2,6};
-    int k=2;
-    int ans=aggressive_cows(arr,k);
-    cout<<"The largest minimum distance is: "<<ans<<endl;
+    vector<int> v={40,50,70,80,90};
+    int m=3;
+    int ans = aggressive (v,m);
+    cout<<"Minimum of maximum. number of books alloted to one student is: "<<ans<<endl;
     return 0;
 }
