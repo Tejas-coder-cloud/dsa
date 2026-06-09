@@ -1,57 +1,75 @@
-#include<iostream>
-#include<vector> 
-#include<algorithm>
+#include<bits/stdc++.h>
 using namespace std;
+using ll=long long;
+bool isNumberInArray(vector<int> & arr,ll x)
+{
+    ll start=0,end=arr.size()-1;
+    while(start<=end)
+    {
+        ll mid=start+(end-start)/2;
+        if(arr[mid]==x)
+        {
+            return true;
+        }
+        else if(arr[mid]<x)
+        {
+            start=mid+1;
+        }
+        else
+        {
+            end=mid-1;
+        }
+    }
+    return false;
+}
+ll countGreater(vector<int> & arr, ll x)
+{
+    ll start=0,end=arr.size()-1,first_greater=arr.size();
+    while(start<=end)
+    {
+       ll mid=start+(end-start)/2;
+       if(arr[mid]>x)
+       {
+           first_greater=mid;
+           end=mid-1;
+       }
+       else
+       {
+           start=mid+1;
+       }
+    }
+    return arr.size()-first_greater;
+}
 int main()
 {
-    long long n,q;
+    ll n,q;
+    cout<<"Enter the size of array and number of queries: ";
     cin>>n>>q;
-    vector<long long> arr(n);
+    vector<int> arr(n);
     for(int i=0;i<n;i++)
     {
         cin>>arr[i];
     }
     sort(arr.begin(),arr.end());
     for(int i=0;i<q;i++)
-    { 
-        bool flag=false;
-        long long x;
+    {
+        ll x;
+        cout<<"Enter the query: ";
         cin>>x;
-        long long start=0,end=n-1;
-        while(start<=end)
+        if(isNumberInArray(arr,x))
         {
-             long long mid=(start+end)/2;
-            if (arr[mid]==x)
-            {
-                flag =true;
-                break;
-            }
-            else if(x<arr[mid])
-            {
-                end=mid-1;
-            }
-            else
-            {
-                start=mid+1;
-            }
-        }
-        if(flag)
-        {
-            cout<<"0"<<endl;
+            cout<<"0\n";
         }
         else
         {
-            if(end==-1)
+            ll count=countGreater(arr,x);
+            if(count%2!=0)
             {
-                cout<<((n%2)? "Negative":"Positive")<<endl;
-            }
-            else if(start==n)
-            {
-                cout<<"Positive"<<endl;
+                cout<<"Negative\n";
             }
             else
             {
-                cout<<(((n-end-1)%2)?"Negative":"Positive")<<endl;
+                cout<<"Positive\n";
             }
         }
     }

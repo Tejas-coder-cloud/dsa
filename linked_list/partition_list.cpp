@@ -11,27 +11,35 @@ class Node
 };
 Node* partition(Node* head,int x)
 {
-    Node* small=new Node(0);
-    Node*large=new Node(0);
-    Node*smallnode=small;
-    Node*largenode=large;
-    while(head)
-    {
-        if(head->data<x)
+   Node* small=new Node(0);
+        Node* large=new Node(0);
+        Node* equal=new Node(0);
+        Node* smallnode=small;
+        Node* largenode=large;
+        Node* equalnode=equal;
+        while(head)
         {
-            smallnode->next=head;
-            smallnode=smallnode->next;
+            if(head->data<x)
+            {
+                smallnode->next=head;
+                smallnode=smallnode->next;
+            }
+            else if(head->data>x)
+            {
+                largenode->next=head;
+                largenode=largenode->next;
+            }
+            else
+            {
+                equalnode->next=head;
+                equalnode=equalnode->next;
+            }
+            head=head->next;
         }
-        else
-        {
-            largenode->next=head;
-            largenode=largenode->next;
-        }
-        head=head->next;
-    }
-    largenode->next=NULL;
-    smallnode->next=large->next;
-    return small->next;
+        largenode->next=NULL;
+        equalnode->next=large->next;
+        smallnode->next=equal->next;
+        return small->next;
 }
 Node * createlist(vector<int> &v)
 {
