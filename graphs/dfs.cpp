@@ -1,59 +1,61 @@
+/*
+Depth First Search
+V= No of Vertices
+E=No of Edges
+Time complexity:O(V+E)
+Space complexity:O(V+E)
+ */
 #include <bits/stdc++.h>
 using namespace std;
-void dfs(unordered_map<int,bool> &visited,unordered_map<int,list<int>> &adj,vector<int> &component,int node)
+class Graph
 {
-    component.push_back(node);
-    visited[node]=true;
-    for(auto i:adj[node])
+    int v;
+    list<int> *l;
+public:
+    Graph(int v)
     {
-        if(!visited[i])
+        this->v = v;
+        l = new list<int>[v];
+    }
+    void addEdge(int u, int v)
+    {
+        l[u].push_back(v);
+        l[v].push_back(u);
+    }
+    void dfsHelper(int src, vector<bool> &vis)
+    {
+        cout<<src<<" ";
+        vis[src]=true;
+        for(int n:l[src])
         {
-            dfs(visited,adj,component,i);
+            if(!vis[n])
+            {
+                dfsHelper(n,vis);
+            }
         }
     }
-}
-vector<vector<int>> printdfs(int n,int m,vector<vector<int>> edges)
-{
-    unordered_map<int,bool> visited;
-    unordered_map<int,list<int>> adj;
-    vector<vector<int>> ans;
-    for(int i=0;i<edges.size();i++)
+    void dfs()
     {
-        int u=edges[i][0];
-        int v=edges[i][1];
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-    for(int i=0;i<n;i++)
-    {
-        if(!visited[i])
+        int src=0;
+        vector<bool> vis(v,false);
+        for(int i=0;i<v;i++)
         {
-            vector<int> component;
-            dfs(visited,adj,component,i);
-            ans.push_back(component);
+            if(!vis[i])
+            {
+                dfsHelper(i,vis);
+            }
         }
     }
-    return ans;
-}
+};
 
-int main() 
+int main()
 {
-    int n=4,m=3;
-    vector<vector<int>> edges=
-    {
-        {0,1},
-        {1,2},
-        {2,3}
-    };  
-    vector<vector<int>> ans=printdfs(n,m,edges);
-    for(auto i:ans)
-    {
-        for(int node: i)
-        {
-        cout<<node<<",";
-        }
-        cout<<"|";
-    }
-    cout<<endl;
+    Graph g(6);
+    g.addEdge(0, 1);
+    g.addEdge(1, 2);
+    g.addEdge(2, 3);
+    g.addEdge(4, 5);
+    cout<<"dfs traversal is given as follows: ";
+    g.dfs();
     return 0;
 }

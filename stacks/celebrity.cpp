@@ -1,48 +1,49 @@
 /*
-Celebrity problem
+celebrity problem 
 Time complexity:O(n)
-Space complexity:O(1)
+Space complexity:O(n)
  */
 #include <bits/stdc++.h>
 using namespace std;
-int celebrity(vector<vector<int>> &mat)
+int celebrity(vector<vector<int>> &v)
 {
-    int n = mat.size();
-    if (n == 0)
-        return -1; // Protect against empty matrix
-    // Phase 1: Find the candidate (O(1) Space Elimination)
-    // Instead of a stack, we just keep track of a single candidate
-    int candidate = 0;
-    for (int i = 1; i < n; i++)
+    stack<int> st;
+    for(int i=0;i<v.size();i++)
     {
-        // If the candidate knows 'i', the candidate is fake.
-        // 'i' becomes the new potential candidate.
-        if (mat[candidate][i] == 1)
+        st.push(i);
+    }
+    while(st.size()>1)
+    {
+        int i=st.top();
+        st.pop();
+        int j=st.top();
+        st.pop();
+        if(v[i][j]==0)
         {
-            candidate = i;
+            st.push(i);
+        }
+        else
+        {
+            st.push(j);
         }
     }
-    // Phase 2: Verify the candidate
-    for (int i = 0; i < n; i++)
+    int celeb=st.top();
+    for(int i=0;i<v.size();i++)
     {
-        // We skip the diagonal (candidate checking themselves)
-        if (i != candidate)
+        if(i!=celeb && v[i][celeb]==0 && v[celeb][i]==1)
         {
-            // If candidate knows someone OR someone doesn't know the candidate -> Fail
-            if (mat[candidate][i] == 1 || mat[i][candidate] == 0)
-            {
-                return -1;
-            }
+            return -1;
         }
     }
-    return candidate;
+    return celeb;
 }
+
 int main()
 {
     vector<vector<int>> v={
-        {1,0,0},
+        {0,1,0},
         {0,0,0},
-        {1,0,1}
+        {0,1,0}
     };
     int ans=celebrity(v);
     cout<<"The celebrity is: "<<ans<<endl;

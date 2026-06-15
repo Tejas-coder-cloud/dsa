@@ -1,78 +1,81 @@
-/*Circular queue definition:
-here in circular queue the last position is connected to the first position to make a circle
-so that we can use the empty spaces in front of the queue
-when rear reaches end of the queue we make it point to front if there is empty space and vice versa for front
-*/ 
-#include<bits/stdc++.h>
+/*
+Circular Queue
+Time complexity:O(n) for printArr and O(1) for all other operations
+Space complexity:O(n)
+*/
+#include <bits/stdc++.h>
 using namespace std;
 class CircularQueue
 {
-    public:
-    int *arr;
-    int front;
-    int rear;
-    int size;
-    CircularQueue(int n)
+    int *arr, currSize, cap, r, f;
+
+public:
+    CircularQueue(int size)
     {
-        size=n;
-        arr=new int[n];
-        front=rear=-1;
+        cap = size;
+        r = -1;
+        currSize = 0;
+        f = 0;
+        arr = new int[cap];
     }
-    bool enqueue(int value)
+    void push(int data)
     {
-        if((front==0 && rear==size-1) || rear==front-1)
+        if (currSize == cap)
         {
-            cout<<"Queue Overflow"<<endl;
-            return false;
-        }
-        else if(front==-1)
-        {
-            front=rear=0;
-        }
-        else if(rear==size-1 && front!=0)
-        {
-            rear=0;
+            cout << "Circular queue is full\n";
         }
         else
         {
-            rear++;
+            r = (r + 1) % cap;
+            arr[r] = data;
+            currSize++;
         }
-        arr[rear]=value;
-        return true;
     }
-    int dequeue()
+    void pop()
     {
-        if(front==-1)
+        if (empty())
         {
-            cout<<"Queue Underflow"<<endl;
-            return -1;
-        }
-        int ans=arr[front];
-        arr[front]=-1;
-        if(front==rear)
-        {
-            front=rear=-1;
-        }
-        else if(front==size-1)
-        {
-            front=0;
+            cout << "Queue is empty ";
         }
         else
         {
-            front++;
+            f = (f + 1) % cap;
+            currSize--;
         }
-        return ans;
+    }
+    bool empty()
+    {
+        return currSize == 0;
+    }
+    int front()
+    {
+        return arr[f];
+    }
+    void printArr()
+    {
+        if (currSize == 0)
+        {
+            cout << "Queue is empty\n";
+            return;
+        }
+        cout << " Queue is as follows: ";
+        for (int i = 0; i < currSize; i++)
+        {
+            int index = (f + i) % cap;
+            cout << arr[index] << " ";
+        }
+        cout << endl;
     }
 };
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
     CircularQueue q(5);
-    q.enqueue(10);
-    q.enqueue(20);
-    q.enqueue(30);
-    q.dequeue();
-    // cout<<"First element of queue is: "<<q.front()<<endl;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+    q.push(5);
+    q.pop();
+    q.printArr();
     return 0;
 }

@@ -1,61 +1,64 @@
-#include<bits/stdc++.h>
+/*
+Breadth First Search
+V= No of Vertices
+E=No of Edges
+Time complexity:O(V+E)
+Space complexity:O(V+E)
+ */
+#include <bits/stdc++.h>
 using namespace std;
-void bfs(unordered_map<int,bool> &visited,int node,unordered_map<int,list<int>> &adj,vector<int> &ans)
+class Graph
 {
-    queue<int> q;
-    q.push(node);
-    visited[node]=true;
-    while(!q.empty())
+    int v;
+    list<int> *l;
+public:
+    Graph(int v)
     {
-        int frontNode=q.front();
-        q.pop();
-        ans.push_back(frontNode);
-        for(auto i:adj[frontNode])
+        this->v = v;
+        l = new list<int>[v];
+    }
+    void addEdge(int u, int v)
+    {
+        l[u].push_back(v);
+        l[v].push_back(u);
+    }
+    void bfs()
+    {
+        vector<bool> visited(v, false);
+        cout << "BFS traversal is as follows: ";
+        for (int i = 0; i < v; i++)
         {
-            if(!visited[i])
+            if (!visited[i])
             {
+                queue<int> q;
                 q.push(i);
-                visited[i]=true;
+                visited[i] = true;
+                while (!q.empty())
+                {
+                    int src = q.front();
+                    q.pop();
+                    cout << src << " ";
+                    for (int dest : l[src])
+                    {
+                        if (!visited[dest])
+                        {
+                            visited[dest] = true;
+                            q.push(dest);
+                        }
+                    }
+                }
             }
         }
+        cout << endl;
     }
-}
-vector<int> printbfs(int node,vector<pair<int,int>> edges)
-{
-    vector<int> ans;
-    unordered_map<int,bool> visited;
-    unordered_map<int,list<int>> adj;
-    for(int i=0;i<edges.size();i++)
-    {
-        // forming the adjacency list
-        int u=edges[i].first;
-        int v=edges[i].second;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-    for(int i=0;i<node;i++)
-    {
-        if(!visited[i])
-        {
-            bfs(visited,i,adj,ans);
-        }
-    }
-    return ans;
-}
+};
+
 int main()
 {
-    int n=4;
-    vector<pair<int,int>> edges=
-    {
-        {1,2},
-        {0,1},
-        {2,3}
-    };
-    vector<int> ans=printbfs(n,edges);
-    for(auto i:ans)
-    {
-        cout<<i<<",";
-    }
-    cout<<endl;
+    Graph g(5);
+    g.addEdge(0, 1);
+    g.addEdge(1, 2);
+    g.addEdge(3, 4);
+    g.bfs();
     return 0;
 }
