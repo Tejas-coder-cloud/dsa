@@ -1,46 +1,30 @@
+/*
+Time complexity: O(n)
+Space complexity: O(n)
+*/
 #include<bits/stdc++.h>
 using namespace std;
-queue<int> interleave(queue <int> a)
+queue<int> interleave(queue <int> &a)
 {
-    int n=a.size()/2;
-    stack<int> s;
-    for(int i=0;i<n;i++)
+    queue<int> q;
+    int k=a.size()/2;
+    for(int i=0;i<k;i++)
     {
-        int val=a.front();
+        q.push(a.front());
         a.pop();
-        s.push(val);
     }
-    while(!s.empty())
+    while(!q.empty())
     {
-        int val=s.top();
-        s.pop();
-        a.push(val);
-    }
-    for(int i=0;i<n;i++)
-    {
-        int val=a.front();
+        a.push(q.front());
+        q.pop();
+        a.push(a.front());
         a.pop();
-        a.push(val);
-    }
-    for(int i=0;i<n;i++)
-    {
-        int val=a.front();
-        a.pop();
-        s.push(val);
-    }
-    while(!s.empty())
-    {
-        int val=s.top();
-        s.pop();
-        a.push(val);
-        int x=a.front();
-        a.pop();
-        a.push(x);
     }
     return a;
 }
 int main()
 {
+    
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     queue<int> a;
@@ -56,7 +40,3 @@ int main()
     }
     return 0;
 }
-/*
-Time complexity: O(n)
-Space complexity: O(n)
-*/
