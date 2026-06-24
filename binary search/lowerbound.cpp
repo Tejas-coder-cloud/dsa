@@ -1,5 +1,4 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 int lowerbound(const vector<int> &arr,int k)
 {  
