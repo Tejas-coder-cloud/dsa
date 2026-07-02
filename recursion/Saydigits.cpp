@@ -1,7 +1,6 @@
 
 // code to write the number in terms of words
-#include<iostream>
-#include<string>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {

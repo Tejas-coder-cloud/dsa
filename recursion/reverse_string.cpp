@@ -1,4 +1,6 @@
-#include<iostream>
+// time complexity:O(n)
+//space complexity:O(n)
+#include<bits/stdc++.h>
 using namespace std;
 void reverse(string s,int index)
 {
@@ -19,5 +21,3 @@ int main()
     reverse(s,n-1);
     return 0;
 }
-// time complexity:O(n)
-//space complexity:O(n)

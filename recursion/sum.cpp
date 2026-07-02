@@ -1,5 +1,5 @@
 // recursive approach to find sum of the numbers
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int sum(int n)
 {

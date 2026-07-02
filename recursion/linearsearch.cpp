@@ -1,4 +1,4 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 int linear_search(int k,int n,int a[],int index=0)
 {
