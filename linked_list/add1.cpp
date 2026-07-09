@@ -1,4 +1,8 @@
-//  Add  1 to linked list 
+/*
+Add 1 to a linked list
+Time complexity:O(n)
+Space complexity:O(1)
+*/
 #include<bits/stdc++.h>
 using namespace std;
 class Node

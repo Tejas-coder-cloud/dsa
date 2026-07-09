@@ -1,3 +1,8 @@
+/*
+Reverse a singly linked list recursively
+Time complexity:O(n)
+Space complexity:O(n)
+*/
 #include <bits/stdc++.h>
 using namespace std;
 class Node
