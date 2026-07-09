@@ -60,7 +60,7 @@ int inversionCount(vector<int> &arr)
 }
 int main()
 {
-    vector<int> arr={3,1,4,0,-1};
+    vector<int> arr={3,4,1};
     int invC=inversionCount(arr);
     cout<<"The inversion count of the arr is "<<invC<<endl;
     return 0;
