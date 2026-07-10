@@ -1,4 +1,10 @@
-//  Add 2 numbers represented by the linked lists
+/*
+Add  2  linked lists
+n=Length of first linked list 
+m=Length of second linked list
+Time complexity:O(n+m)
+Space complexity:O(max(n+m)+1)
+*/
 #include<bits/stdc++.h>
 using namespace std;
 class Node
@@ -25,6 +31,10 @@ Node* reverse(Node*& head)
 {
     Node* prev = NULL;
     Node* curr = head;
+    if(head ==NULL || head->next==NULL)
+    {
+        return head;
+    }
     while (curr) {
         Node* temp = curr->next;
         curr->next = prev;

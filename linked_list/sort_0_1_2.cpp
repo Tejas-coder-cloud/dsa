@@ -1,6 +1,7 @@
 /* 
 sort 0s,1s,2s in a linked list 
-Time complexity: O(2n),Space complexity: O(1)
+Time complexity: O(2n)
+Space complexity: O(1)
 */
 #include<bits/stdc++.h>
 using namespace std;
@@ -15,6 +16,10 @@ class Node
 };
 Node * createlist(vector<int> &v)
 {
+    if(v.empty())
+    {
+        return NULL;
+    }
     Node* temp=new Node(v[0]);
     Node* curr=temp;
     for (int i = 1; i < v.size(); i++)
