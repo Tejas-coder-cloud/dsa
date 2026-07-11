@@ -6,7 +6,7 @@ bool isPalindrome(string s,int left,int right)
     {
         return true;
     }
-    if(s[left]!=s[right])
+    if(tolower(s[left])!=tolower(s[right]))
     {
         return false;
     }
