@@ -1,5 +1,5 @@
 /*
-Combination sum 
+Combination sum I
 K = Average Length of a Combination
 X = Number of Valid Combinations
 T=target
