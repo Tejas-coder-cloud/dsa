@@ -32,7 +32,7 @@ int main()
 /*
 Memoized version of the code 
 Time complexity:O(N)
-Space complexity:O(N)
+Space complexity:O(2N)
 #include <bits/stdc++.h>
 using namespace std;
 int solve(int i , vector<int> &arr,vector<int> & dp)
@@ -56,6 +56,34 @@ int main()
     vector<int> arr={10,20,10};
     int ans=frog_jump(arr);
     cout<<"The minimum energy required is: "<<ans<<endl;
+    return 0;
+}
+
+Frog jump (Tabulation)
+Time complexity:O(N)
+Space complexity:O(N)
+#include<bits/stdc++.h>
+using namespace std;
+int forg_jump(vector<int> & arr)
+{
+    int n=arr.size();
+    vector<int> dp(n,0);
+    for(int i=1;i<n;i++)
+    {
+        int fs=dp[i-1]+abs(arr[i]-arr[i-1]);
+        int ss=INT_MAX;
+        if(i>1)
+        {
+            ss=dp[i-2]+abs(arr[i]-arr[i-2]);
+        }
+        dp[i]=min(ss,fs);
+    }
+    return dp[n-1];
+}
+int main()
+{
+    vector<int> arr={10,30,20,5};
+    cout<<"The minimum energy required is: "<<forg_jump(arr)<<endl;
     return 0;
 }
 */
