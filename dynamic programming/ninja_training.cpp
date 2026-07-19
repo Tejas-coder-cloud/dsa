@@ -7,10 +7,12 @@ DP Table + Recursion Stack
 */
 #include <bits/stdc++.h>
 using namespace std;
-int solve(int day, int last, vector<vector<int>> &points,vector<vector<int>> &dp)
+int solve(int day, int last, vector<vector<int>> &points, vector<vector<int>> &dp)
 {
     if (dp[day][last] != -1)
+    {
         return dp[day][last];
+    }
     // Base Case
     if (day == 0)
     {
@@ -18,7 +20,9 @@ int solve(int day, int last, vector<vector<int>> &points,vector<vector<int>> &dp
         for (int task = 0; task < 3; task++)
         {
             if (task != last)
+            {
                 maxi = max(maxi, points[0][task]);
+            }
         }
         return dp[day][last] = maxi;
     }
@@ -27,7 +31,7 @@ int solve(int day, int last, vector<vector<int>> &points,vector<vector<int>> &dp
     {
         if (task != last)
         {
-            int point = points[day][task] +solve(day - 1, task, points, dp);
+            int point = points[day][task] + solve(day - 1, task, points, dp);
             maxi = max(maxi, point);
         }
     }
@@ -45,7 +49,11 @@ int main()
     vector<vector<int>> points(n, vector<int>(3));
     for (int i = 0; i < n; i++)
         for (int j = 0; j < 3; j++)
-            cin >> points[i][j];
+        {
+            {
+                cin >> points[i][j];
+            }
+        }
     cout << ninjaTraining(n, points);
     return 0;
 }

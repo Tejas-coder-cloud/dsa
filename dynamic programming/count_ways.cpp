@@ -64,6 +64,7 @@ int countWays(int n, int m)
                 dp[i][j] = up + left;
             }
         }    
+    }
     return dp[n - 1][m - 1];
 }
 int main()
@@ -77,6 +78,40 @@ int main()
     int m = test[0].size();
     cout << "The number of steps to reach destination is: "
     << countWays(n, m);  
+    return 0;
+}
+
+Space optimized version 
+Time Complexity: O(N*M)
+Space Complexity: O(M)
+#include<bits/stdc++.h>
+using namespace std;
+int count_ways(int n,int m)
+{
+    vector<int> dp(m,0);
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(i==0 && j==0)
+            {
+                dp[j]=1;
+            }
+            else if(j==0)
+            {
+                continue;
+            }
+            else
+            {
+                dp[j]=dp[j]+dp[j-1];
+            }
+        }
+    }
+    return dp[m-1];
+}
+int main()
+{
+    cout<<"The total ways to reach from top left to bottom right is: "<<count_ways(3,3)<<endl;
     return 0;
 }
 */
