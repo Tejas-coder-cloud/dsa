@@ -1,3 +1,9 @@
+/*
+m=average length of string
+n= total no of strings in contactList
+Time complexity:O(n*m^2)
+Space complexity:O(n*m)
+*/
 #include<bits/stdc++.h>
 using namespace std;
 class TrieNode
@@ -110,7 +116,7 @@ vector<vector<string>> phoneDirectory(vector<string> & contactList, string & que
 int main()
 {
     vector<string> contactList = 
-    {
+    { 
         "alice",
         "alex",
         "alina",
