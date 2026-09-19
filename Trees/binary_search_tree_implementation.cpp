@@ -119,13 +119,13 @@ bool searchInBST(Node *&root, int x)
     // Base case
     // if(root==NULL)
     // {
-    //     return false;
-    // }
-    // if(root->data==x)
-    // {
-    //     return true;
-    // }
-    // if(root->data>x)
+        //     return false;
+        // }
+        // if(root->data==x)
+        // {
+            //     return true;
+            // }
+            // if(root->data>x)
     // {
     //     return searchInBST(root->left,x);
     // }
@@ -151,6 +151,65 @@ bool searchInBST(Node *&root, int x)
     }
     return false;
 }
+Node* minVal(Node* &root)
+{
+    Node*temp=root;
+    while(temp->left!=NULL)
+    {
+        temp=temp->left;
+    }
+    return temp;
+}
+Node* deleteFromBST(Node* & root,int x)
+{
+    // Base case
+    if(root==NULL)
+    {
+        return NULL;
+    } 
+    if(root->data==x)
+    {
+        // 0 child --> leaf node
+        if(root->left==NULL && root->right==NULL)
+        {
+            delete root;
+            return NULL;
+        }
+        // 1 child
+        // Left child
+        if(root->left!=NULL && root->right==NULL)
+        {
+            Node* temp=root->left;
+            delete root;
+            return temp;
+        }
+        //right child 
+        if(root->right!=NULL && root->left==NULL)
+        {
+            Node* temp=root->right;
+            delete root;
+            return temp;
+        }
+        // 2 child
+        if(root->left!=NULL && root->right!=NULL)
+        {
+            int mini=minVal(root->right)->data;
+            root->data=mini;
+            root->right=deleteFromBST(root->right,mini);
+            return root;
+        }
+    }
+    else if(root->data>x)
+    {
+        root->left=deleteFromBST(root->left,x);
+        return root;
+    }
+    else 
+    {
+        root->right=deleteFromBST(root->right,x);
+        return root;        
+    }
+}
 int main()
 {
     Node *root = NULL;
@@ -160,5 +219,8 @@ int main()
     cout << searchInBST(root, 25);
     cout<<endl;
     findMinAndMax(root);
+    root=deleteFromBST(root,50);
+    cout<<endl;
+    levelOrderTraversal(root);
     return 0;
 }
