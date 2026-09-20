@@ -1,3 +1,11 @@
+/*
+N = Number of nodes 
+H = Height of tree
+Time complexity:O(N)
+Space complexity:O(H)
+For finding kth largest we can find the corresponding (n-k+1)th smallest element
+The above solution can be optimized using Morris Traversal for O(1) Space complexity
+*/
 #include<bits/stdc++.h>
 using namespace std;
 class Node
